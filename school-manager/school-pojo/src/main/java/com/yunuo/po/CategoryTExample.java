@@ -304,52 +304,62 @@ public class CategoryTExample {
             return (Criteria) this;
         }
 
-        public Criteria andPidEqualTo(Long value) {
+        public Criteria andPidEqualTo(String value) {
             addCriterion("Pid =", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotEqualTo(Long value) {
+        public Criteria andPidNotEqualTo(String value) {
             addCriterion("Pid <>", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThan(Long value) {
+        public Criteria andPidGreaterThan(String value) {
             addCriterion("Pid >", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThanOrEqualTo(Long value) {
+        public Criteria andPidGreaterThanOrEqualTo(String value) {
             addCriterion("Pid >=", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThan(Long value) {
+        public Criteria andPidLessThan(String value) {
             addCriterion("Pid <", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThanOrEqualTo(Long value) {
+        public Criteria andPidLessThanOrEqualTo(String value) {
             addCriterion("Pid <=", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidIn(List<Long> values) {
+        public Criteria andPidLike(String value) {
+            addCriterion("Pid like", value, "pid");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidNotLike(String value) {
+            addCriterion("Pid not like", value, "pid");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidIn(List<String> values) {
             addCriterion("Pid in", values, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotIn(List<Long> values) {
+        public Criteria andPidNotIn(List<String> values) {
             addCriterion("Pid not in", values, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidBetween(Long value1, Long value2) {
+        public Criteria andPidBetween(String value1, String value2) {
             addCriterion("Pid between", value1, value2, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotBetween(Long value1, Long value2) {
+        public Criteria andPidNotBetween(String value1, String value2) {
             addCriterion("Pid not between", value1, value2, "pid");
             return (Criteria) this;
         }

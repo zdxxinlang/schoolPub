@@ -33,7 +33,7 @@ public class ItemController {
 	public List<LocalCatPojo> getItemListView(@RequestParam(value="id",defaultValue="0") String pid) {
 		List<LocalCatPojo> resultList = new ArrayList<>();
 
-		System.out.println("/item/cat/list");
+		System.out.println("/item/cat/list"+pid);
 		List<CategoryT> categoryTs = itemCatService.getItemCatByParentId(pid);
 		LocalCatPojo localCatPojo;
 		for (int i = 0; i < categoryTs.size(); i++) {

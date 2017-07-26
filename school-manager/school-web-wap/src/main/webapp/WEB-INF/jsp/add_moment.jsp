@@ -31,8 +31,9 @@
 				textField: 'text',
 				url: '/item/cat/list',
 				onSelect: function(rec){
+				$('#type2').combo('clear');
 				var url = '/item/cat/list?id='+rec.id;
-				$('#theclass').combobox('reload', url);
+				$('#type2').combobox('reload', url);
 			}">
 			<lable style="margin-left:15px">类目二</lable>
 			<input id="type2" class="easyui-combobox" data-options="valueField:'id',textField:'text'">

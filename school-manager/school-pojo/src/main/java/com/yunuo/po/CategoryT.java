@@ -7,7 +7,7 @@ public class CategoryT {
 
     private String name;
 
-    private Long pid;
+    private String pid;
 
     private Integer type;
 
@@ -37,12 +37,12 @@ public class CategoryT {
         this.name = name == null ? null : name.trim();
     }
 
-    public Long getPid() {
+    public String getPid() {
         return pid;
     }
 
-    public void setPid(Long pid) {
-        this.pid = pid;
+    public void setPid(String pid) {
+        this.pid = pid == null ? null : pid.trim();
     }
 
     public Integer getType() {

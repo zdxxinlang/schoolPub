@@ -3,6 +3,7 @@ package com.yunuo.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +32,12 @@ public class ItemCatServiceImpl implements ItemCatService{
 		List<CategoryT> resultList = new ArrayList<>();
 		CategoryTExample categoryTExample = new CategoryTExample();
 		Criteria criteria = categoryTExample.createCriteria();
-		criteria.andCatidEqualTo(pid);
+		criteria.andPidEqualTo(pid);
 		
 						
 		resultList = categoryTMapper.selectByExample(categoryTExample);
 
+		System.out.println("ItemCatServiceImpl ==="+pid);
 		for (CategoryT categoryT : resultList) {
 			System.out.println("pp"+categoryT.toString());
 		}
