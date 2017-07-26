@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Custom DataGrid Pager - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../css/demo.css">
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'center',title:''" >
+		<table id="dg" title="" style="height:530px"
+				data-options="rownumbers:true,singleSelect:true,pagination:true,url:'datagrid_data1.json',method:'get'">
+			<thead>
+				<tr>
+					<th data-options="field:'id',width:80">id</th>
+					<th data-options="field:'content',width:240">content</th>
+					<th data-options="field:'pic',width:120,align:'center'">pic</th>
+					<th data-options="field:'goods',width:60">goods</th>
+					<th data-options="field:'forward',width:60">forward</th>
+					<th data-options="field:'favourite',width:60">favourite</th>
+					<th data-options="field:'type1',width:40,align:'center'">type1</th>
+					<th data-options="field:'type2',width:40,align:'center'">type2</th>
+					<th data-options="field:'type3',width:40">type3</th>
+					<th data-options="field:'level',width:40">level</th>
+					<th data-options="field:'authorid',width:80,align:'center'">authorid</th>
+					<th data-options="field:'create_time',width:80,align:'center'">create_time</th>
+					<th data-options="field:'schoolid',width:60">schoolid</th>
+					<th data-options="field:'level',width:40,align:'center'">level</th>
+				</tr>
+			</thead>
+		</table>
+	<script type="text/javascript">
+		$(function(){
+			var pager = $('#dg').datagrid().datagrid('getPager');	// get the pager of datagrid
+			pager.pagination({
+				buttons:[{
+					iconCls:'icon-search',
+					handler:function(){
+						alert('search');
+					}
+				},{
+					iconCls:'icon-add',
+					handler:function(){
+						alert('add');
+					}
+				},{
+					iconCls:'icon-edit',
+					handler:function(){
+						alert('edit');
+					}
+				}]
+			});			
+		})
+		
+
+	</script>
+	</div>
+</body>
+</html>

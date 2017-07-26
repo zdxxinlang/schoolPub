@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunuo.mapper.MomentsShowVMapper" >
+  <resultMap id="BaseResultMap" type="com.yunuo.po.MomentsShowV" >
+    <result column="typename2" property="typename2" jdbcType="VARCHAR" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="goods" property="goods" jdbcType="BIGINT" />
+    <result column="forward" property="forward" jdbcType="BIGINT" />
+    <result column="favourite" property="favourite" jdbcType="BIGINT" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="urbanname" property="urbanname" jdbcType="VARCHAR" />
+    <result column="schoolname" property="schoolname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    typename2, uname, id, content, pic, create_time, goods, forward, favourite, level, 
+    urbanname, schoolname
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yunuo.po.MomentsShowVExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from moments_show_v
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.yunuo.po.MomentsShowVExample" >
+    delete from moments_show_v
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yunuo.po.MomentsShowV" >
+    insert into moments_show_v (typename2, uname, id, 
+      content, pic, create_time, 
+      goods, forward, favourite, 
+      level, urbanname, schoolname
+      )
+    values (#{typename2,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{id,jdbcType=BIGINT}, 
+      #{content,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{goods,jdbcType=BIGINT}, #{forward,jdbcType=BIGINT}, #{favourite,jdbcType=BIGINT}, 
+      #{level,jdbcType=INTEGER}, #{urbanname,jdbcType=VARCHAR}, #{schoolname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yunuo.po.MomentsShowV" >
+    insert into moments_show_v
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="typename2 != null" >
+        typename2,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="pic != null" >
+        pic,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="goods != null" >
+        goods,
+      </if>
+      <if test="forward != null" >
+        forward,
+      </if>
+      <if test="favourite != null" >
+        favourite,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="urbanname != null" >
+        urbanname,
+      </if>
+      <if test="schoolname != null" >
+        schoolname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="typename2 != null" >
+        #{typename2,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goods != null" >
+        #{goods,jdbcType=BIGINT},
+      </if>
+      <if test="forward != null" >
+        #{forward,jdbcType=BIGINT},
+      </if>
+      <if test="favourite != null" >
+        #{favourite,jdbcType=BIGINT},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="urbanname != null" >
+        #{urbanname,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolname != null" >
+        #{schoolname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yunuo.po.MomentsShowVExample" resultType="java.lang.Integer" >
+    select count(*) from moments_show_v
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update moments_show_v
+    <set >
+      <if test="record.typename2 != null" >
+        typename2 = #{record.typename2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uname != null" >
+        uname = #{record.uname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic != null" >
+        pic = #{record.pic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.goods != null" >
+        goods = #{record.goods,jdbcType=BIGINT},
+      </if>
+      <if test="record.forward != null" >
+        forward = #{record.forward,jdbcType=BIGINT},
+      </if>
+      <if test="record.favourite != null" >
+        favourite = #{record.favourite,jdbcType=BIGINT},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.urbanname != null" >
+        urbanname = #{record.urbanname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schoolname != null" >
+        schoolname = #{record.schoolname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update moments_show_v
+    set typename2 = #{record.typename2,jdbcType=VARCHAR},
+      uname = #{record.uname,jdbcType=VARCHAR},
+      id = #{record.id,jdbcType=BIGINT},
+      content = #{record.content,jdbcType=VARCHAR},
+      pic = #{record.pic,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      goods = #{record.goods,jdbcType=BIGINT},
+      forward = #{record.forward,jdbcType=BIGINT},
+      favourite = #{record.favourite,jdbcType=BIGINT},
+      level = #{record.level,jdbcType=INTEGER},
+      urbanname = #{record.urbanname,jdbcType=VARCHAR},
+      schoolname = #{record.schoolname,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
