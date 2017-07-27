@@ -1,0 +1,2 @@
+
+insert into locationcscade_t(PlaceID,name,Pid,State,Type) values('1','ÖÐ¹ú',0,1,1);

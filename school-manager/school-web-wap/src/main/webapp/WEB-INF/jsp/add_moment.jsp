@@ -21,6 +21,14 @@
 		function closedWin(){
 			$('#w').window('close');
 		}
+		
+        function uploadPic(){  
+            if($("#file").val()==""){  
+                $.messager.alert("提示","请选择文件夹");  
+                return false;  
+            }  
+             
+        }  
 	</script>
 					
 	<div style="background:#fafafa;width:99%;height:300px;">
@@ -112,7 +120,11 @@
 		    }">
 		    <lable style="margin-left:15px">班级</lable>
 			<input id="theclass" class="easyui-combobox" data-options="valueField:'id',textField:'text'">
-			       
+			
+			<div style="margin:15px">  
+                                      图片: <input accept="image/gif, image/jpeg,image/jpg, image/png" id="file" type="file" name="myfiles"/><br/>     
+            </div>  
+                        
 	        <div style="margin:15px">
 	            <label for="level">等级:</label>
 				<input class="easyui-combobox" name="level"
@@ -128,7 +140,7 @@
 	        </div>
 	    </form>
 		
-		<div id="w"  class="easyui-window" data-options="title:'类目',iconCls:'icon-save'" style="width:600px;height:430px;padding:0px;" closed="true">
+		<!--  <div id="w"  class="easyui-window" data-options="title:'类目',iconCls:'icon-save'" style="width:600px;height:430px;padding:0px;" closed="true">
 			<div class="easyui-layout" data-options="fit:true">
 				<div data-options="region:'center',border:false" style="padding:10px;background:#fff;border:1px solid #ccc;">
 					<ul id="isLeaf" class="easyui-tree" ></ul>
@@ -138,7 +150,7 @@
 					<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="closedWin()">取消、</a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	
 	
