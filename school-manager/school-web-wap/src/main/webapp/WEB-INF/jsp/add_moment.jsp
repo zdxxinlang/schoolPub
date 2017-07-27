@@ -158,7 +158,7 @@
 // 初始化选择类目组件
 
 
-		$(".selectItemCat").each(function(i,e){
+/*	$(".selectItemCat").each(function(i,e){
 			
 		//	var type1 = $("#type1").val(); 
 			//var type2 = $("#type2").val(); 
@@ -205,7 +205,7 @@
 				}).window('open');
 			});
 		});
-
+*/
 	
 </script>
 
