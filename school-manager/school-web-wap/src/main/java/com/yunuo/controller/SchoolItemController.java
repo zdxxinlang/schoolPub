@@ -45,12 +45,7 @@ public class SchoolItemController {
 			LocalCatPojo = new LocalCatPojo();
 			LocalCatPojo.setId(schoolcscadeTs.get(i).getSchoolid());
 			LocalCatPojo.setText(schoolcscadeTs.get(i).getName());
-			//LocalCatPojo.setParentID(schoolcscadeTs.get(i).getPid());
 			resultList.add(LocalCatPojo);
-		}
-		
-		for (LocalCatPojo result : resultList) {
-			System.out.println(result.toString());
 		}
 		return resultList;
 	}

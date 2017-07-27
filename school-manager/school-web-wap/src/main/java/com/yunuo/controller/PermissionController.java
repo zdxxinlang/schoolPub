@@ -20,28 +20,20 @@ import com.yunuo.po.CategoryT;
 import com.yunuo.po.LocationcscadeT;
 import com.yunuo.po.MomentsShowV;
 import com.yunuo.po.MomentsT;
+import com.yunuo.po.PermissionT;
 import com.yunuo.service.ItemCatService;
 import com.yunuo.service.MomentsItemService;
+import com.yunuo.service.PermissionService;
 
 @Controller
-public class ItemController {
+public class PermissionController {
 	@Autowired
-	private ItemCatService itemCatService;
+	private PermissionService permissionService;
 	
-	@RequestMapping("/item/cat/list")
+	@RequestMapping("/level/moments/getLevelList")
 	@ResponseBody
-	public List<LocalCatPojo> getItemListView(@RequestParam(value="id",defaultValue="0") String pid) {
-		List<LocalCatPojo> resultList = new ArrayList<>();
-
-		System.out.println("/item/cat/list"+pid);
-		List<CategoryT> categoryTs = itemCatService.getItemCatByParentId(pid);
-		LocalCatPojo localCatPojo;
-		for (int i = 0; i < categoryTs.size(); i++) {
-			localCatPojo = new LocalCatPojo();
-			localCatPojo.setId(categoryTs.get(i).getCatid());
-			localCatPojo.setText(categoryTs.get(i).getName());
-			resultList.add(localCatPojo);
-		}
-		return resultList;
+	public List<PermissionT> getAllMomentPerission() {
+		List<PermissionT> permissionTs = permissionService.getAllMomentPermission();
+		return permissionTs;
 	}
 }

@@ -129,9 +129,9 @@
 	            <label for="level">等级:</label>
 				<input class="easyui-combobox" name="level"
 						data-options="
-								url:'combobox_data.json',
+								url:'/level/moments/getLevelList',
 								valueField:'id',
-								textField:'text',
+								textField:'permission',
 								panelHeight:'auto'
 						">
 	        </div>

@@ -34,21 +34,14 @@ public class LocationcscadeController {
 	public List<LocalCatPojo> getLocationList(@RequestParam(value="id",defaultValue="0") String pid) {
 		List<LocalCatPojo> resultList = new ArrayList<>();
 
-		System.out.println("/localtion/cat/list");
 		List<LocationcscadeT> locationcscadeTs = localtionService.getLocaltionByParentId(pid);
 		LocalCatPojo localCatPojo;
 		for (int i = 0; i < locationcscadeTs.size(); i++) {
 			localCatPojo = new LocalCatPojo();
 			localCatPojo.setId(locationcscadeTs.get(i).getPlaceid());
 			localCatPojo.setText(locationcscadeTs.get(i).getName());
-			//localCatPojo.setParentID(locationcscadeTs.get(i).getPid());
 			resultList.add(localCatPojo);
 		}
-		
-		for (LocationcscadeT locationcscadeT : locationcscadeTs) {
-			System.out.println(locationcscadeT.toString());
-		}
-		
 		return resultList;
 	}
 }
